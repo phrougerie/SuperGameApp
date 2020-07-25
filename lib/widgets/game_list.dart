@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_game_app/pages/game_page.dart';
 import 'package:super_game_app/viewmodels/gameViewModel.dart';
 
 
@@ -30,6 +31,12 @@ class GameList extends StatelessWidget {
           ),
           contentPadding: EdgeInsets.all(10),
           title: Text(game.name),
+          onTap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=> GamePage(game: game,))
+            );
+          },
         );
       },
     );

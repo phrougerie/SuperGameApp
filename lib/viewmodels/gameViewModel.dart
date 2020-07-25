@@ -24,4 +24,8 @@ class GameViewModel {
     return this.game.name;
   }
 
+  String get deck {
+    return this.game.deck;
+  }
+
 }

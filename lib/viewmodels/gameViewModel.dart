@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:super_game_app/model/game.dart';
 
 class GameViewModel {
@@ -13,4 +15,13 @@ class GameViewModel {
   String get description {
     return this.game.description;
   }
+
+  LinkedHashMap<String,dynamic> get  image{
+    return this.game.image;
+  }
+
+  String get name {
+    return this.game.name;
+  }
+
 }

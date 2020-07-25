@@ -7,8 +7,8 @@ import 'dart:io';
 
 class GameService {
 
-  Future<List<Game>> fetchGames() async {
-    final url = "https://www.giantbomb.com/api/games/?api_key=10890e83929ff4cdef85907f1812fc2e8814604d&format=json";
+  Future<List<Game>> fetchGames(String search) async {
+    final url = "https://www.giantbomb.com/api/search/?api_key=10890e83929ff4cdef85907f1812fc2e8814604d&format=json&query="+search;
     final response = await http.get(
       url
     );

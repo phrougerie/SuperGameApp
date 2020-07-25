@@ -5,10 +5,9 @@ import 'package:super_game_app/viewmodels/gameViewModel.dart';
 class GameListViewModel extends ChangeNotifier {
   List<GameViewModel> games = List<GameViewModel>();
 
-  Future<void> fetchGames() async {
-    final results = await GameService().fetchGames();
+  Future<void> fetchGames(String search) async {
+    final results = await GameService().fetchGames(search);
     this.games = results.map((item) => GameViewModel(game: item)).toList();
-    print(this.games);
     notifyListeners();
   }
 }

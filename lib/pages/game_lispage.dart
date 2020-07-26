@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:super_game_app/viewmodels/gameListViewmodel.dart';
 import 'package:super_game_app/widgets/game_list.dart';
+import 'package:super_game_app/widgets/main_bottom.dart';
 class GameListPage extends StatefulWidget{
   @override
   _GameListPageState createState() => _GameListPageState();
@@ -40,6 +41,7 @@ class _GameListPageState extends State<GameListPage> {
                   controller: _controller,
                   onSubmitted: (value) {
                     if(value.isNotEmpty) {
+                      vm.reinit();
                       vm.fetchGames(value);
                       _controller.clear();
                     }
@@ -53,8 +55,34 @@ class _GameListPageState extends State<GameListPage> {
 
                 ),
               ),
+
               Expanded(
-                  child: GameList(games: vm.games))
+                  child: GameList(games: vm.games)),
+              Container(
+                child: Row(
+                  children: <Widget>[
+                    if(vm.visibilityBack) IconButton(
+                      icon: Icon(Icons.volume_up),
+                      tooltip: 'Increase volume by 10',
+                      onPressed: () {
+
+                      },
+                    ),
+                    if(vm.visibilityNext) IconButton(
+                      icon: Icon(Icons.volume_up),
+                      tooltip: 'Increase volume by 10',
+                      onPressed: () {
+
+                      },
+                    ),
+
+                  ],
+                ),
+              ),
+              Container(
+                  height: 100,
+                child: BottomBarWidget(),
+              )
             ])
         )
 

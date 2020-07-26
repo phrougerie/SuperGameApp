@@ -62,16 +62,21 @@ class _GameListPageState extends State<GameListPage> {
                 child: Row(
                   children: <Widget>[
                     if(vm.visibilityBack) IconButton(
-                      icon: Icon(Icons.volume_up),
-                      tooltip: 'Increase volume by 10',
+                      icon: Icon(Icons.arrow_back),
+                      tooltip: 'Previous page',
                       onPressed: () {
-
+                        vm.page--;
+                        if(vm.page==1) vm.visibilityBack = false;
+                        vm.fetchGames(vm.currentSearch);
                       },
                     ),
                     if(vm.visibilityNext) IconButton(
-                      icon: Icon(Icons.volume_up),
-                      tooltip: 'Increase volume by 10',
+                      icon: Icon(Icons.arrow_forward),
+                      tooltip: 'Next page',
                       onPressed: () {
+                        vm.page++;
+                        vm.visibilityBack=true;
+                        vm.fetchGames(vm.currentSearch);
 
                       },
                     ),

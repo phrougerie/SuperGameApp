@@ -7,6 +7,7 @@ class GameListViewModel extends ChangeNotifier {
   int page;
   bool visibilityBack = false;
   bool visibilityNext = false;
+  String currentSearch;
 
   void reinit(){
     visibilityNext = true;
@@ -17,6 +18,7 @@ class GameListViewModel extends ChangeNotifier {
   Future<void> fetchGames(String search) async {
     final results = await GameService().fetchGames(search,page);
     this.games = results.map((item) => GameViewModel(game: item)).toList();
+    currentSearch = search;
     notifyListeners();
   }
 }

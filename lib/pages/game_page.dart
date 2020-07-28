@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:super_game_app/viewmodels/connexion_view_model.dart';
+import 'package:super_game_app/viewmodels/gameListViewmodel.dart';
 import 'package:super_game_app/viewmodels/gameViewModel.dart';
 
 class GamePage extends StatelessWidget {
@@ -9,6 +12,7 @@ class GamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(game.name),

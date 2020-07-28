@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:super_game_app/pages/connection_page.dart';
 import 'package:super_game_app/pages/game_lispage.dart';
 import 'package:super_game_app/services/gameService.dart';
 import 'package:super_game_app/viewmodels/gameListViewmodel.dart';
@@ -30,10 +31,9 @@ class MyApp extends StatelessWidget {
       ),
 
       home:
-          ChangeNotifierProvider(
-            create: (context) => GameListViewModel(),
-            child: GameListPage(),
-          ),
+
+          ConnectionPage()
+
 
 
     );
